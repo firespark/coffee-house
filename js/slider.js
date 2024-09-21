@@ -100,6 +100,7 @@ carousel.onmouseout = function() {
 
 
 let x = null;
+alert(x);
 document.addEventListener('touchstart', e => x = e.touches[0].clientX);
 document.addEventListener('touchmove', e => {
     if (!x) return;
