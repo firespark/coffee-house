@@ -113,6 +113,8 @@ carousel.addEventListener('touchmove', e => {
     x = null;
 }); */
 
+alert(111);
+
 carousel.addEventListener('touchstart', handleTouchStart, false);  
 carousel.addEventListener('touchmove', handleTouchMove, false);
 
@@ -125,7 +127,7 @@ function handleTouchStart(evt) {
 };                                                
 
 function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
+    if ( !xDown || !yDown ) {
         return;
     }
 
@@ -134,7 +136,7 @@ function handleTouchMove(evt) {
 
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
-    
+
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
         if ( xDiff > 0 ) {
             changeSlide();
@@ -143,6 +145,9 @@ function handleTouchMove(evt) {
             changeSlide(false);
         }                       
     } 
+    else { 
+        return;                                                             
+    }
 
     xDown = null;
     yDown = null;                                             
