@@ -103,6 +103,7 @@ let x = null;
 document.addEventListener('touchstart', e => x = e.touches[0].clientX);
 document.addEventListener('touchmove', e => {
     if (!x) return;
+    alert(x);
     x = x - e.touches[0].clientX < 0 ? 0 : -90;
     test.style.transform = `translate(${x}%,0)`;
     x = null;
