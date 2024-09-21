@@ -113,8 +113,6 @@ carousel.addEventListener('touchmove', e => {
     x = null;
 }); */
 
-alert(111);
-
 carousel.addEventListener('touchstart', handleTouchStart, false);  
 carousel.addEventListener('touchmove', handleTouchMove, false);
 
