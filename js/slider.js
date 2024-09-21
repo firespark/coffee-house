@@ -1,5 +1,5 @@
 let defaultOffset = 480;
-let cardWidth = 480;
+let cardWidth = (document.documentElement.scrollWidth > 740) ? 480 : 348;
 let currentOffset = defaultOffset;
 
 const carousel = document.querySelector(".slides");
@@ -27,15 +27,21 @@ function changeOffset() {
 
 function resizeWindow() {
 
+    let newCardWidth;
+
 	if (document.documentElement.scrollWidth > 740) {
-		cardWidth = 480;
+		newCardWidth = 480;
 	}
     else {
-		cardWidth = 348;
+		newCardWidth = 348;
 	}
 
-    defaultOffset = (cardWidth * (cardList.length - 1)) / 2;
-	currentOffset = defaultOffset;
+    if (newCardWidth !== cardWidth) {
+        cardWidth = newCardWidth;
+        defaultOffset = (cardWidth * (cardList.length - 1)) / 2;
+	    currentOffset = defaultOffset;
+    }
+
 }
 
 function getActiveSlideIndex() {
@@ -84,7 +90,6 @@ sliderControls.forEach((control, index) => {
 });
 
 
-resizeWindow();
 changeOffset();
 
 let progress = 0;
@@ -124,8 +129,8 @@ startProgress(0);
 carousel.addEventListener('touchstart', handleTouchStart, false);  
 carousel.addEventListener('touchmove', handleTouchMove, false);
 
-var xDown = null;                                                        
-var yDown = null;                                                        
+let xDown = null;                                                        
+let yDown = null;                                                        
 
 function handleTouchStart(evt) {                                         
     xDown = evt.touches[0].clientX;                                      
@@ -137,11 +142,11 @@ function handleTouchMove(evt) {
         return;
     }
 
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
+    const xUp = evt.touches[0].clientX;                                    
+    const yUp = evt.touches[0].clientY;
 
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
+    const xDiff = xDown - xUp;
+    const yDiff = yDown - yUp;
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
         if ( xDiff > 0 ) {

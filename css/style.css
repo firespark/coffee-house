@@ -641,8 +641,29 @@ section.mobile-app {
     font-weight: 600;
 }
 
-.menu-refresh {
+.menu-refresh.dnone {
     display: none;
+}
+
+.menu-refresh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 40px auto 0;
+    border: 1px solid var(--darkgrey);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.menu-refresh .menu-refresh-inner {
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/icons/refresh.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
 

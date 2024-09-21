@@ -86,34 +86,14 @@
         padding: 0 13px;
     }
 
-    .menu-product:nth-child(n+5) {
+    /* .menu-product:nth-child(n+5) {
         display: none;
-    }
+    } */
 
     .menu-product .product-description {
         width: 270px;
         min-height: 72px;
         letter-spacing: unset;
-    }
-
-    .menu-refresh {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        margin: 40px auto 0;
-        border: 1px solid var(--darkgrey);
-        border-radius: 100%;
-    }
-
-    .menu-refresh .menu-refresh-inner {
-        width: 24px;
-        height: 24px;
-        background-image: url('../img/icons/refresh.svg');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: center;
     }
 
 
@@ -473,7 +453,7 @@
 }
 
 
-/***** HOVER *****/
+/***** HOVER RESET *****/
 
 @media (max-width: 600px) {
 
@@ -483,27 +463,20 @@
     }
 
     .hero-offer .hero-menu-link:hover span {
-        left: inherit;
+        left: -8px;
     }
     
     .hero-offer .hero-menu-link:hover::after {
         opacity: inherit;
     }
 
-    .slider .slider-arrow:hover {
-        background-color: inherit;
-    }
-    
-    .slider .slider-arrow:hover .arrow svg {
-        stroke: inherit;
-    }
 
     .slider-controls .control:hover .control-inner {
-        background-color: inherit;
+        background-color: var(--darkgrey);
     }
 
     .about-images .about-image:hover img {
-        transform: none;
+        transform: scale(1.24);
     }
 
     .mobile-app-download .download-button:hover {
@@ -511,7 +484,7 @@
     }
     
     .download-button:hover .download-button-icon svg {
-        fill: inherit;
+        fill: var(--dark);
     }
     
     .download-button:hover .download-button-text {
@@ -523,7 +496,7 @@
     }
     
     .tab:hover .tab-icon {
-        background-color: inherit;
+        background-color: var(--grey);
     }
     
     .tab:hover .tab-title {
@@ -531,7 +504,7 @@
     }
 
     .menu-product:hover .product-image img {
-        transform: none;
+        transform: scale(1.1);
     }
 
     .footer-socials .social-icon:hover {
@@ -539,16 +512,12 @@
     }
     
     .footer-socials .social-icon:hover .icon svg {
-        stroke: inherit;
+        stroke: var(--light);
     }
 
     .contacts-info .info-line.link:hover:after,
     .contacts-info .info-line.link:focus:after {
         width: inherit;
-    }
-
-    .modal-blocks .modal-left:hover img {
-        transform: none;
     }
 
     .modal-right .modal-close:hover {
