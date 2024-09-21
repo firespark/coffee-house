@@ -97,7 +97,7 @@ carousel.onmouseout = function() {
 }
 
 
-let x = null;
+/* let x = null;
 carousel.addEventListener('touchstart', e => x = e.touches[0].clientX);
 carousel.addEventListener('touchmove', e => {
     
@@ -111,5 +111,39 @@ carousel.addEventListener('touchmove', e => {
     }
 
     x = null;
-});
+}); */
 
+carousel.addEventListener('touchstart', handleTouchStart, false);  
+carousel.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;                                                        
+
+function handleTouchStart(evt) {                                         
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+    
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+        if ( xDiff > 0 ) {
+            changeSlide();
+        } 
+        else {
+            changeSlide(false);
+        }                       
+    } 
+
+    xDown = null;
+    yDown = null;                                             
+};
