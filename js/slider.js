@@ -7,6 +7,7 @@ const cardList = carousel.querySelectorAll(".slide");
 const arrowLeft = document.querySelector("#arrow-left");
 const arrowRight = document.querySelector("#arrow-right");
 const sliderControls = document.querySelectorAll('.slider-controls .control');
+const sliderControlFill = document.querySelectorAll(".control-inner-fill");
 
 defaultOffset = (cardWidth * (cardList.length - 1)) / 2;
 currentOffset = defaultOffset;
@@ -58,7 +59,7 @@ function changeSlide(left = true) {
     
 	setTransition();
 	changeOffset();
-    setActiveControl(getActiveSlideIndex());
+    startProgress(getActiveSlideIndex());
 }
 
 window.addEventListener("resize", () => {
@@ -78,56 +79,47 @@ sliderControls.forEach((control, index) => {
         currentOffset = defaultOffset - index * cardWidth;
         setTransition();
         changeOffset();
-        setActiveControl(index);
+        startProgress(index);
     });
 });
 
 
 resizeWindow();
 changeOffset();
-setActiveControl(0);
 
-let intervalId = setInterval( changeSlide, 5000 );
+let progress = 0;
+let isPaused = false;
+let intervalId;
 
-carousel.onmouseover = function() { 
-    clearInterval( intervalId );
+function startProgress(n) {
+	sliderControlFill.forEach((progressBar) => {
+		progressBar.style.flexBasis = `0%`;
+	});
+	progress = 0;
+	clearInterval(intervalId);
+	intervalId = setInterval(() => {
+		if (!isPaused) {
+			progress += 100 / (5000 / 100); // Increment based on time
+
+			sliderControlFill[n].style.flexBasis = `${progress}%`;
+
+			if (progress >= 100) {
+				progress = 0;
+				clearInterval(intervalId);
+				changeSlide(false);
+			}
+		}
+	}, 100); // Update every ~100ms for smoothness
 }
-carousel.onmouseout = function() { 
-    intervalId = setInterval( changeSlide, 5000 );
-}
 
-carousel.onmouseup = function() { 
-    intervalId = setInterval( changeSlide, 5000 );
-}
-carousel.onmousedown = function() { 
-    clearInterval( intervalId );
-    
-}
+carousel.onmouseover = () => (isPaused = true);
+carousel.onmouseout = () => (isPaused = false);
 
-/* carousel.addEventListener('touchstart', function() { 
-    clearInterval( intervalId );
-});
+carousel.onmousedown = () => (isPaused = true);
+carousel.onmouseup = () => (isPaused = false);
 
-carousel.addEventListener('touchend', function() { 
-    intervalId = setInterval( changeSlide, 5000 );
-});  */
+startProgress(0);
 
-
-/* let x = null;
-carousel.addEventListener('touchstart', e => x = e.touches[0].clientX);
-carousel.addEventListener('touchmove', e => {
-    
-    if (!x) return;
-
-    if (x - e.touches[0].clientX < 0) {
-        changeSlide();
-    }
-    else {
-        changeSlide(false);
-    }
-
-    x = null;
-}); */
 
 carousel.addEventListener('touchstart', handleTouchStart, false);  
 carousel.addEventListener('touchmove', handleTouchMove, false);

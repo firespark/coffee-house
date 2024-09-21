@@ -361,14 +361,28 @@ section.favorite-coffee {
 }
 
 .slider-controls .control .control-inner {
+    
+    position: relative;
+    display: flex;
+    flex: 10;
+    flex-basis: 100%;
     width: 40px;
     height: 4px;
     border-radius: 100px;
     background-color: var(--grey);
-    transition: 0.5s ease-out;
 }
 
-.slider-controls .control.active .control-inner,
+
+.slider-controls .control .control-inner .control-inner-fill{
+    width: 40px;
+    height: 4px;
+    border-radius: 100px;
+    flex: 0;
+    flex-basis: 0%;
+    background-color: var(--darkgrey);
+    transition: 0.1s ease-out;
+}
+
 .slider-controls .control:hover .control-inner {
     background-color: var(--darkgrey);
 }
