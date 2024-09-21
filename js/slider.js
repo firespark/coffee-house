@@ -96,6 +96,14 @@ carousel.onmouseout = function() {
     intervalId = setInterval( changeSlide, 5000 );
 }
 
+carousel.addEventListener('touchstart', function() { 
+    clearInterval( intervalId );
+}, false);
+
+carousel.addEventListener('touchend', function() { 
+    intervalId = setInterval( changeSlide, 5000 );
+}, false); 
+
 
 /* let x = null;
 carousel.addEventListener('touchstart', e => x = e.touches[0].clientX);
