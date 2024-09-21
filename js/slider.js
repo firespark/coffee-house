@@ -97,20 +97,19 @@ carousel.onmouseout = function() {
 }
 
 
-
-
 let x = null;
-document.addEventListener('touchstart', e => x = e.touches[0].clientX);
-document.addEventListener('touchmove', e => {
+carousel.addEventListener('touchstart', e => x = e.touches[0].clientX);
+carousel.addEventListener('touchmove', e => {
+    
     if (!x) return;
-    alert('ttt');
+
     if (x - e.touches[0].clientX < 0) {
         changeSlide();
     }
     else {
         changeSlide(false);
     }
-        
+
     x = null;
 });
 
