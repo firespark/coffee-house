@@ -96,13 +96,21 @@ carousel.onmouseout = function() {
     intervalId = setInterval( changeSlide, 5000 );
 }
 
-carousel.addEventListener('touchstart', function() { 
+carousel.onmouseup = function() { 
+    intervalId = setInterval( changeSlide, 5000 );
+}
+carousel.onmousedown = function() { 
     clearInterval( intervalId );
-}, false);
+    
+}
+
+/* carousel.addEventListener('touchstart', function() { 
+    clearInterval( intervalId );
+});
 
 carousel.addEventListener('touchend', function() { 
     intervalId = setInterval( changeSlide, 5000 );
-}, false); 
+});  */
 
 
 /* let x = null;
