@@ -540,7 +540,7 @@ section.mobile-app {
     border-radius: 100px;
     border: 1px solid var(--grey);
     cursor: pointer;
-    transition: 0.5s ease-out;
+    transition: 0.2s ease-out;
 }
 
 .tab .tab-icon {
@@ -869,6 +869,10 @@ section.mobile-app {
     justify-content: flex-start;
     gap: 7px;
     margin-top: 8px;
+}
+
+.modal-parameters .tabs .tab.active {
+    cursor: pointer;
 }
 
 .modal-right .modal-total {

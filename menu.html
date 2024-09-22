@@ -70,7 +70,7 @@
             
             <h1>Behind each of our cups hides an <span>amazing surprise</span></h1>
 
-            <div class="tabs">
+            <div class="menu-tabs tabs">
                 <div class="tab active" data-category="coffee">
                     <div class="tab-icon"><img src="img/icons/coffee-icon.png" alt=""></div>
                     <div class="tab-title">Coffee</div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="menu-products"></div>
+            <div class="menu-products show-products"></div>
 
             <div class="menu-refresh dnone">
                 <div class="menu-refresh-inner"></div>
@@ -159,9 +159,75 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/data.js"></script>
+    <div class="modal" id="modal-menu">
+        <div class="modal-container">
+            <div class="modal-blocks">
+                <div class="modal-left">
+                    <img class="modal-img" src="img/menu/coffee/coffee-1.jpg" alt="">
+                </div>
+                <div class="modal-right">
+                    <div class="modal-info">
+                        <div class="modal-title">Irish coffee</div>
+                        <div class="modal-description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</div>
+                    </div>
+                    
+                    <div class="modal-parameters">
+                        <div class="parameter-title">Size</div>
+                        <div class="tabs sizes">
+                            <div class="tab active" data-price="0">
+                                <div class="tab-icon">S</div>
+                                <div class="tab-title">200 ml</div>
+                            </div>
+                            <div class="tab" data-price="0.5">
+                                <div class="tab-icon">M</div>
+                                <div class="tab-title">300 ml</div>
+                            </div>
+                            <div class="tab" data-price="1">
+                                <div class="tab-icon">L</div>
+                                <div class="tab-title">400 ml</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-parameters">
+                        <div class="parameter-title">Additives</div>
+                        <div class="tabs additives">
+                            <div class="tab">
+                                <div class="tab-icon">1</div>
+                                <div class="tab-title">Sugar</div>
+                            </div>
+                            <div class="tab">
+                                <div class="tab-icon">2</div>
+                                <div class="tab-title">Cinnamon</div>
+                            </div>
+                            <div class="tab">
+                                <div class="tab-icon">3</div>
+                                <div class="tab-title">Syrup</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-total">
+                        <div>Total:</div>
+                        <div>$<span class="total-price" data-price="7">7.00</span></div>
+                    </div>
+
+                    <div class="modal-note">
+                        <img src="img/icons/info-empty.svg" alt="">
+                        <span>The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</span>
+                    </div>
+
+                    <div class="modal-close">Close</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/menu.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/modal.js"></script>
 
 </body>
 

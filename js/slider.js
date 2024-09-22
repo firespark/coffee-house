@@ -26,27 +26,26 @@ function changeOffset() {
 }
 
 function resizeWindow() {
-
     let newCardWidth;
-
-	if (document.documentElement.scrollWidth > 740) {
-		newCardWidth = 480;
-	}
-    else {
-		newCardWidth = 348;
-	}
-
+  
+    if (document.documentElement.scrollWidth > 740) {
+        newCardWidth = 480;
+    } else {
+        newCardWidth = 348;
+    }
+  
     if (newCardWidth !== cardWidth) {
         cardWidth = newCardWidth;
         defaultOffset = (cardWidth * (cardList.length - 1)) / 2;
-	    currentOffset = defaultOffset;
+        currentOffset = defaultOffset - cardWidth * getActiveSlideIndex();
+        changeOffset();
     }
-
 }
-
+  
 function getActiveSlideIndex() {
-    return -((currentOffset - defaultOffset) / cardWidth);
+    return -Math.round((currentOffset - defaultOffset) / cardWidth);
 }
+
 
 function setActiveControl(n) {
     for (let i = 0; i < sliderControls.length; i++) {

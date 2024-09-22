@@ -1,5 +1,5 @@
 const menuProducts = document.querySelector('.menu-products');
-const tabs = document.querySelectorAll('.tabs .tab');
+const tabs = document.querySelectorAll('.menu-tabs .tabs .tab');
 const menuRefresh = document.querySelector('.menu-refresh');
 
 let menuObj = getDataByCategory('coffee');
