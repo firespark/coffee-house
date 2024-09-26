@@ -70,13 +70,15 @@ window.addEventListener('resize', () => {
     if (document.documentElement.scrollWidth < 768) {
         menuRight.classList.remove('hide-nav');
         menuBurger.classList.remove('hide-burger');
-        if (!document.body.classList.contains('ohidden')) {
-            document.body.classList.add('ohidden');
-        }
+        
     }
     else {
-        if (document.body.classList.contains('ohidden')) {
+        if (menuRight.classList.contains('opened')) {
             document.body.classList.remove('ohidden');
+            menuRight.classList.remove('opened');
+            menuRight.classList.remove('show-nav');
+            menuBurger.classList.remove('opened');
+            menuBurger.classList.remove('show-burger');
         }
     }
 });
